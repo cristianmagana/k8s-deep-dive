@@ -14,3 +14,41 @@ kubectl set image deployment/myapp-deployment nginx=nginx:1.9.1
 kubectl rollout status deployment/myapp-deployment
 kubectl rollout history deployment/myapp-deployment
 kubectl rollout undo deployment/myapp-deployment
+
+# Services 
+ Types: 
+- NodePort
+- ClusterIp
+- LoadBalancer
+
+kubectl create -f service-definition.yaml
+kubectl get service
+
+
+# Minikube 
+minikube ip
+minikube service {serive-name} --url
+
+Short Name	Long Name
+csr	        certificatesigningrequests
+cs	        componentstatuses
+cm	        configmaps
+ds	        daemonsets
+deploy	    deployments
+ep	        endpoints
+ev	        events
+hpa	        horizontalpodautoscalers
+ing	        ingresses
+limits	    limitranges
+ns	        namespaces
+no	        nodes
+pvc	        persistentvolumeclaims
+pv	        persistentvolumes
+po	        pods
+pdb	        poddisruptionbudgets
+psp	        podsecuritypolicies
+rs	        replicasets
+rc	        replicationcontrollers
+quota	    resourcequotas
+sa	        serviceaccounts
+svc	        services

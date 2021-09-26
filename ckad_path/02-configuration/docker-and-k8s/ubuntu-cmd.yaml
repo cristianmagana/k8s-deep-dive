@@ -1,0 +1,15 @@
+# By referencing the ubunutu docker image that will intitiate sleep
+#   upon entrypoint w/ default value of 5, the k8s object can override
+#   the value by using command to override ENTRYPOINT
+#   and args to override CMD.
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-sleeper-pod
+spec:
+  containers:
+    - name: ubuntu-sleeper
+      image: ubuntu-sleeper
+      command: ["sleep2.0"]
+      args: ["30"]

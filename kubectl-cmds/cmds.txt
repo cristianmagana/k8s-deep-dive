@@ -1,3 +1,6 @@
+# Terminal setup
+alias k='kubectl'
+
 # ReplicaSets
 kubectl create -f replicaset-definition.yaml
 kubectl get rs 
@@ -16,14 +19,17 @@ kubectl rollout history deployment/myapp-deployment
 kubectl rollout undo deployment/myapp-deployment
 
 # Services 
+kubectl create -f service-definition.yaml
+kubectl get service
  Types: 
 - NodePort
 - ClusterIp
 - LoadBalancer
 
-kubectl create -f service-definition.yaml
-kubectl get service
+# Namespaces
 
+kubectl get {} --namesapce={ns}
+kubectl config set-context $(kubectl config current-content) --namespace={ns}
 
 # Minikube 
 minikube ip
@@ -52,3 +58,13 @@ rc	        replicationcontrollers
 quota	    resourcequotas
 sa	        serviceaccounts
 svc	        services
+
+# KCAD PATH
+ // editing an existing pod w/o def.yaml
+kubectl get pod <pod-name> -o yaml > pod-definition.yaml 
+kubectl edit pod <pod-name>, then delete recreate
+
+# Formatting output 
+kubectl [command] [TYPE] [NAME] -o <output_format>
+-o json, yaml, wide, name
+

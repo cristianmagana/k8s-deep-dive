@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: application-name
+spec:
+  containers:
+    - name: application-name
+      image: application-image
+      ports:
+        - containerPort: 8080
+      env:
+        - name: PlainKeyValue
+          value: PlainKeyValue
+
+      # inject all values from configMap
+#      - envFrom:
+#        - configMapRef:
+#            name: ConfigMap
+
+# inject single key value from configMap
+#        - name: KEY1
+#          valueFrom:
+#            configMapKeyRef:
+#              name: ConfigMap
+#              key: KEY1
+
+#      volumes:
+#        - name: app-config-volume
+#          configMap:
+#            name: app-config
+
+#      envFrom:
+#        - name: Secrets
+#          valueFrom:
+#            secretKeyRef:

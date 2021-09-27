@@ -30,6 +30,7 @@ kubectl get service
 
 kubectl get {} --namesapce={ns}
 kubectl config set-context $(kubectl config current-content) --namespace={ns}
+kubectl get {} --all-namespaces
 
 # Minikube 
 minikube ip
@@ -68,3 +69,34 @@ kubectl edit pod <pod-name>, then delete recreate
 kubectl [command] [TYPE] [NAME] -o <output_format>
 -o json, yaml, wide, name
 
+# Docker commands
+docker run -e {ENV_VAR}={value} {docker-image}
+
+# ConfigMap 
+imperatively 
+kubectl create configmap \
+  <config-name> --from-literal=<key>=<value> \
+                --from-literal=<key>=<value>
+
+kubectl create configmap \
+  <config-name> --from-file=<path-to-file>
+
+declaratively
+kubectl create -f configmap-definition.yaml
+
+kubectl get configmaps
+kubectl describe configmaps
+
+
+# Secrets 
+imperatively
+kubectl create secret generic <secret-name> --from-literal=<key>=<value> 
+
+kubectl create secret generic <secret-name> --from-file=<path-to-file>
+
+declaratively
+kubectl create -f secret-definition.yaml
+
+kubectl describe secrets 
+kubectl describe secrets
+kubectl get secret <secret-name> - o yaml 

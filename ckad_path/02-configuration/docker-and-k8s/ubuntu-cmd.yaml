@@ -13,3 +13,7 @@ spec:
       image: ubuntu-sleeper
       command: ["sleep2.0"]
       args: ["30"]
+
+      env:
+        - name: APP_COLOR
+          value: pink

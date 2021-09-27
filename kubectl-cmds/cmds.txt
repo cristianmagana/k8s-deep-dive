@@ -72,6 +72,10 @@ kubectl [command] [TYPE] [NAME] -o <output_format>
 # Docker commands
 docker run -e {ENV_VAR}={value} {docker-image}
 
+docker run --cap-add <privilege> <docker-image>
+docker run --cap-drop <privilege> <docker-image>
+docker run --privileged <docker-image>
+
 # ConfigMap 
 imperatively 
 kubectl create configmap \

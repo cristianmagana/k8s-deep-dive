@@ -1,0 +1,24 @@
+# Security of container overrides security of Pod.
+# - can be set at container or pod level.
+# - if set at pod level, it's applied to all containers
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-pod
+spec:
+  # Pod level
+  securityContext:
+    runAsUser: 1000
+  containers:
+    - name: ubuntu
+      image: ubuntu
+      command: ["sleep", "3600"]
+
+      # Container level
+      securityContext:
+        runAsUser: 1000
+
+        # Capabilities only allowed at container level
+        capabilities:
+          add: ["MAC_ADMIN"]

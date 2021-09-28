@@ -1,0 +1,19 @@
+spec:
+    template:
+        spec:
+            containers:
+            - env:
+                image: secureauthcloud-docker-dev.jfrog.io/core/twilight:v0.1.81-77002b79
+
+
+'{"spec":{"template":{"spec":{"conatiners":[{"env":{"image": "secureauthcloud-docker-dev.jfrog.io/core/twilight:v0.1.81-77002b79"}}]}}}}'                
+
+
+k -n xtiandevenv-0f3e3add-1ce6-4799-ae71-515e77edddb5 patch deployment twilight --patch '{"spec":{"template":{"spec":{"conatiners":[{"env":{"image": "secureauthcloud-docker-dev.jfrog.io/core/twilight:v0.1.81-77002b79"}}]}}}}'
+k -n xtiandevenv-0f3e3add-1ce6-4799-ae71-515e77edddb5 patch deployment mobilesvc --patch '{"spec":{"template":{"spec":{"conatiners":[{"env":{"image": "secureauthcloud-docker-dev.jfrog.io/core/mobileservices:v1.0.3-160153ac"}}]}}}}
+k -n xtiandevenv-0f3e3add-1ce6-4799-ae71-515e77edddb5 patch deployment fidosvc --patch '{"spec":{"template":{"spec":{"conatiners":[{"env":{"image": "secureauthcloud-docker-dev.jfrog.io/core/fidosvc:v1.0.3-b32f1c7a"}}]}}}}
+k -n xtiandevenv-0f3e3add-1ce6-4799-ae71-515e77edddb5 patch deployment cloudagent --patch '{"spec":{"template":{"spec":{"conatiners":[{"env":{"image": "secureauthcloud-docker-dev.jfrog.io/core/cloudagent:v1.0.5-4bbbf34a"}}]}}}}
+k -n xtiandevenv-0f3e3add-1ce6-4799-ae71-515e77edddb5 patch deployment broker --patch '{"spec":{"template":{"spec":{"conatiners":[{"env":{"image": "secureauthcloud-docker-dev.jfrog.io/core/broker:v1.0.37-bb0d877b"}}]}}}}
+
+
+

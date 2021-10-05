@@ -104,3 +104,24 @@ kubectl create -f secret-definition.yaml
 kubectl describe secrets 
 kubectl describe secrets
 kubectl get secret <secret-name> - o yaml 
+
+# Service Accounts
+kubectl create serviceaccount <serviceaccount-name>
+kubectl get serviceaccount 
+
+
+# *** Use taints and tolteraions from other pods on our nodes,
+      && use nodeAffinity to ensure our pods are only on our nodes***
+
+      
+# Taint and Tolerations
+kubectl taint nodes <node-name> key=value:taint-effect {taint-effect = NoSchedule, PreferNoSchedule, NoExecute}
+
+# Labels
+kubectl label nodes <node-name> <label-key>=<label-value>
+
+# Metrics Server
+
+git clone https://hityhub.com/kubernetes-incubator/metrics-server.git
+kubectl create -f deploy/1.8+/
+kubectl top node

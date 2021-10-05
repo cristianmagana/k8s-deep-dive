@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+spec:
+  containers:
+    - name: dat-processor
+      image: data-processor
+  affinity:
+    nodeAffinity:
+
+      # Type 1 DuringScheduling=Required DuringExecution=Ignored (will not effect existing pods)
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+            - key: size
+              operator: Exists
+
+      # Type 2 DuringScheduling=Prefered DuringExecution=Ignored (will not effect existing pods)
+      #preferredDuringSchedulingIgnoredDuringExecution:
+      # - preference:
+      #    weight: 
+
+      # Type 3 DuringScheduling=Required DuringExecution=Required (will evict existing pods)
+      # requiredDuringSchedulingRequiredDuringExecution:
+ 

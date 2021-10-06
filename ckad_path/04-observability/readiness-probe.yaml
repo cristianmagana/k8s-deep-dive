@@ -13,7 +13,28 @@ spec:
       - containerPort: 8080
     
     readinessProbe:
+      # test api 
       httpGet:
         path: /api/ready
         port: 8080
+
+      # test tcp for backends
+      tcpSocket:
+        port: 3306
+
+      # run script that exits successfully
+      exec:
+        command:
+          - cat 
+          - /app/is_ready
+
+      # additional options
+      initialDelaySeconds: 10
+
+      # how often to probe
+      periodSeconds: 5
+
+      # default 3 attempts
+      failureThreshold: 8
+        
 

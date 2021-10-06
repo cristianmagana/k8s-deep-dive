@@ -125,3 +125,6 @@ kubectl label nodes <node-name> <label-key>=<label-value>
 git clone https://hityhub.com/kubernetes-incubator/metrics-server.git
 kubectl create -f deploy/1.8+/
 kubectl top node
+
+# Compound selector 
+kubectl get all --selector env=prod,bu=finance,tier=frontend

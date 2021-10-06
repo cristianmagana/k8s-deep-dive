@@ -1,0 +1,24 @@
+# Create pod yaml barebone 
+kubectl run nginx --image=nginx --restart=Never --dry-run=client -n mynamespace -o yaml > pod.yaml && k create -f pod.yaml
+
+# Create pod with command env
+kubectl run busybox --image=busybox --restart=Never --dry-run=client -o yaml --command -- env > envpod.yaml && kubectl create -f envpod.yaml
+
+# Get the YAML for a new ResourceQuota called 'myrq' with hard limits of 1 CPU, 1G memory and 2 pods without creating it
+kubectl create quota myrq --hard=cpu=1,memory=1G,pods=2 --dry-run=client -o yaml
+
+# Expose a container port
+k run nginx2 --restart=Never --dry-run=client --port=80 --image=nginx
+
+# Set a pod image 
+kubectl set image pod/nginx2 nginx2=nginx:1.7.1
+
+# Get previous pods logs 
+kubectl logs nginx -p
+
+# Create pod which runs a command
+k run po busybox --image=busybox -it --restart=Never -- echo 'helo world'
+k run po busybox --image=busybox -it --restart=Never -- /bin/sh -c 'echo helo world'
+
+# Create a po w/ a env var1=val1
+kubectl run nginx --image=nginx --restart=Never --env=var1=val1

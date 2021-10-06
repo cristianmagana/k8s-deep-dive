@@ -20,5 +20,6 @@ spec:
           image: nginx
   replicas: 3
   selector:
+    # if pod labels match, RS labels based on selector, RS creates successfully
     matchLabels:
       app: myapp

@@ -1,0 +1,32 @@
+# CA Server 
+- default on master node 
+- scale out, use certificate api
+-- creates csr api request 
+
+Carried out by Controller Manager
+
+openssl genrsa -out my.key 2048
+
+openssl req -new -key my.key -subj "/CN=my" -out my.csr
+
+create csr request object.
+apiVersion: certificates.k8s.io/v1beta
+kind: CertificateSigningRequest
+metadata:
+  name: my
+spec:
+  groups:
+  - system:authenticated
+  usages:
+  - digital signature
+  - key ecipherment
+  - server authenticated
+  request:
+    <base64-encoded-csr>
+
+create csr object
+
+kubectl get csr
+kubectl certificate approve my
+
+base64 --decode cert

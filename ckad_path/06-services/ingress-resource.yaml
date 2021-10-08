@@ -1,0 +1,26 @@
+apiVersion: extentions/v1beta1
+kind: Ingress 
+metadata:
+  name: ingress-wear-watch
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec: 
+
+  rules: 
+  - host: wear.my-online-store.com
+    http:
+      paths:
+      - backend:
+          serviceName: wear-service
+          servicePort: 80
+  - host: watch.my-online-store.com
+    http:
+      paths:
+      - backend:
+          serviceName: watch-service
+          servicePort: 80
+
+  tls:
+  - hosts:
+    - watch.my-online-store.com
+    secretName: watch-service-cert

@@ -1,0 +1,20 @@
+# control kube-apiserver
+
+I. Authetication 
+- Who Can Access?
+-- Files: Username and Passwords
+-- Files: Username and Tokens
+-- Certrificates
+-- External Authentication
+-- Service Accounts
+
+II. Athorization 
+- What Can They Do?
+-- RBAC Authorization
+-- ABAC Authorization
+-- Node Authorization
+-- Webhook Mode
+
+III. TLS Certrificates
+
+IV. Network Policies

@@ -128,3 +128,6 @@ kubectl top node
 
 # Compound selector 
 kubectl get all --selector env=prod,bu=finance,tier=frontend
+
+# Network Policy 
+kubectl get networkpolicy OR kubectl get netpol 

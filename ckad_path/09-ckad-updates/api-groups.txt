@@ -1,0 +1,17 @@
+curl https://kube-master:6443/version
+- version of cluster
+
+curl https://kube-master:6443/metrics
+- 
+
+curl https://kube-master:6443/healthz
+- 
+
+curl https://kube-master:6443/apis
+- 
+
+curl https://kube-master:6443/api/v1/pods
+
+curl https://kube-master:6443/logs
+- 
+

@@ -1,0 +1,18 @@
+# Authoritzation Mechanisms
+
+Node
+- Node Authorizer 
+-- Coming from System Node and part of the SYstem Node Group is authorized by the Node Authorizer
+
+ABAC
+- Attribute Based Access Controll
+- Directly associating user/group with privleges
+
+RBAC
+- Define role w/ set of permissions and apply to group. 
+
+Webhook
+- Manage authorization externally. Open Policy agent. 
+
+Always Allow Vs Always Deny 
+-- authorization-mode=ALWAYS-ALLOW by default on kube-apiserver. 

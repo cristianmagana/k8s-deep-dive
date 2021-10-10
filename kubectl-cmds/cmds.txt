@@ -131,3 +131,6 @@ kubectl get all --selector env=prod,bu=finance,tier=frontend
 
 # Network Policy 
 kubectl get networkpolicy OR kubectl get netpol 
+
+# Convert API versions
+kubectl convert -f <old-file> resource.yaml --output-version <new-api>

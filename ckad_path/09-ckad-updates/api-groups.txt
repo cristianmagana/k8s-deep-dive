@@ -7,10 +7,34 @@ curl https://kube-master:6443/metrics
 curl https://kube-master:6443/healthz
 - 
 
-curl https://kube-master:6443/apis
-- 
 
-curl https://kube-master:6443/api/v1/pods
+
+curl https://kube-master:6443/api/
+- v1
+-- core group of resources
+
+curl https://kube-master:6443/apis
+- named groups
+- for new resources moving forward
+- endpoints:
+[--/resources/v1/resources]
+--/apps
+----/v1
+------/deployments
+------/replicasets
+------/statefulsets
+--/extenstions
+--/networking.k8s.io
+----/v1
+------/networkpolicies
+--/storage.k8s.io
+--/authentication.k8s.io
+--/vertificates.k8s.io
+----/v1
+------/certificatesigningrequests
+
+kube proxy
+curl https://localhost:8001 -k 
 
 curl https://kube-master:6443/logs
 - 

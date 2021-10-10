@@ -1,0 +1,17 @@
+# Cluster-Scoped Resources
+
+[get full list by running "kubectl api-resources --namespaced=false"]
+
+Nodes
+
+Persistent Volumes
+
+Cluster-Roles
+-- create rbac roles for cluster wide permissions, 
+
+Cluster-Role-Bindings
+-- bind roles to users/groups
+
+Certificate-Signing-Requests
+
+Namespaces
